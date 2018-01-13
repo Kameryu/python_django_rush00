@@ -9,7 +9,8 @@ def worldmap(request):
 	return render(request, "r00/worldmap.html")
 
 def battle(request):
-	return render(request, "r00/battle.html")
+	
+	return render(request, "r00/battle.html", {'ttl' : })
 
 def moviedex(request):
 	return render(request, "r00/moviedex.html")
