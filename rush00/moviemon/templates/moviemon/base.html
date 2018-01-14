@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static "moviemon/base.css" %}">
+		<title>{% block title %}{% endblock %}</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="tv_div">
+				<div class=screen_div>
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+			<div class="nes_pad_div">
+				<img id="nes_pad_img" src="{% static "moviemon/resources/nes_pad.jpg" %}" alt="nes_pad.jpg" usemap="#controls">
+				<map name="controls">
+					<area title="left_button" shape="rect" href="{% block left_button %}{% endblock %}" coords="85,202,121,241" alt="left_button">
+					<area title="right_button" shape="rect" href="{% block right_button %}{% endblock %}" coords="192,202,161,240" alt="right_button">
+					<area title="up_button" shape="rect" href="{% block up_button %}{% endblock %}" coords="121,167,160,205" alt="up_button">
+					<area title="down_button" shape="rect" href="{% block down_button %}{% endblock %}" coords="121,276,157,242" alt="down_button">
+					<area title="select_button" shape="rect" href="{% block select_button %}{% endblock %}" coords="301,259,255,238" alt="select_button">
+					<area title="start_button" shape="rect" href="{% block start_button %}{% endblock %}" coords="315,237,362,258" alt="start_button">
+					<area shape="circle" title="b_button" href="{% block b_button %}{% endblock %}" coords="436,248,25" alt="b_button">
+					<area shape="circle" title="a_button" href="{% block a_button %}{% endblock %}" coords="517,248,22" alt="a_button">
+				</map>
+			</div>
+		</div>
+	</body>
+</html>
+

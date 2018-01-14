@@ -1,0 +1,63 @@
+body {
+	background-color:grey;
+}
+.container {
+	width:40vw;
+	height:80vh;
+	position:absolute;
+	margin:auto;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.tv_div {
+	background-image:url("resources/tv.png");
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: 100% 100%;
+	width:100%;
+	height:70%;
+}
+.screen_div {
+	background-color:#003300;
+	border-radius: 8px;
+	width:70%;
+	height:80%;
+	top:10%;
+	left:8%;
+	position:relative;
+	text-align:center;
+}
+table {
+	width:100%;
+	height:80%;
+	table-layout: fixed;
+}
+.game {
+	background-image:url("resources/worldmapff7.png");
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: 100% 100%;
+}
+table, th, td {
+	border:1px solid black;
+}
+tr {
+	height: 2em;
+}
+.option_data {
+	border: hidden;
+}
+.selected {
+	border:2px solid cyan;
+}
+.nes_pad_div {
+	width:100%;
+	height:30%;
+}
+#nes_pad_img {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
