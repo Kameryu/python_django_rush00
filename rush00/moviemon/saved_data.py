@@ -10,6 +10,7 @@ class SavedData:
 			os.mkdir("moviemon/saved_game")
 			self.dlst = list()
 		self.pos = 0
+		self.last = 0
 
 	def get_game_list(self):
 		my_list = self.dlst
@@ -20,3 +21,9 @@ class SavedData:
 			ret[my_split[0]] = my_split[1] + '/' + my_split[2]
 			i += 1
 		return (ret)
+
+	def set_load(self, game):
+		if self.pos == 0 or self.pos > len(self.dlst) + 1:
+			return (0)
+		self.last = self.pos
+		game.load(self.dlst[self.last - 1])

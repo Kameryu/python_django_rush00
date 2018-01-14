@@ -1,14 +1,13 @@
-{% extends "moviemon/base.html"  %}
+{% extends "moviemon/base.html" %}
 
 {% block title %} Worldmap {% endblock %}
 
 {% block content %}
 <p>Movieball x{{ ball }}<p>
-{% if encounter.0 %}<p>You encountered {{ encounter.1 }}, press A to start battle !<p>
-{% endif %}
+{% if encounter.0 %}<p>You encountered {{ encounter.1.0 }}, press A to start battle !<p>{% endif %}
 {% if found.0 %}<p>You found a movieball !<p>
 {% endif %}
-<table class="game">
+<table>
 	{% for y in sizey %}
 	<tr>
 		{% for x in sizex %}
@@ -29,5 +28,6 @@
 {% block down_button %} /worldmap/down {% endblock %}
 {% block select_button %} /moviedex {% endblock %}
 {% block start_button %} /options {% endblock %}
-{% block a_button %} /battle/{{ encounter.2 }} {% endblock %}
+{% block a_button %}
+{% if encounter.0 %} /battle/{{ encounter.1.1 }}/ {% else %} /worldmap/ {% endif %}{% endblock %}
 {% block b_button %} /worldmap/ {% endblock %}

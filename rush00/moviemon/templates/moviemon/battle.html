@@ -1,6 +1,30 @@
-{% extends "moviemon/base.html"  %}
+{% extends "moviemon/base.html" %}
+{% load mathfilters %}
 
 {% block title %} Battle {% endblock %}
-{% block a_button %} Lance Movieball {% endblock %}
+
+{% block content %}
+{% if ball > 0 %}<h2>A - Launch movieball</h2>{% endif %}
+<img id="moviemon" src="{{ encounter.1.3 }}" alt="moviemon.jpg">
+<h2> MovieMon Level : {{ encounter.1.2}}</h2>
+{% if encounter.2 %}<h2>You missed !</h2>{% endif %}
+{% if encounter.0 == False %}<h2>You catched it</h2>{% endif %}
+<p>Movieball x{{ ball }}<p>
+<p>Player Level : {{ movies_in_pocket|length }}<p>
+<p>Chance rate : 
+{% with base=50 monster=encounter.1.2|mul:10 %}
+{% with tmp=base|sub:monster player=movies_in_pocket|length|mul:5%}
+{% with chance=tmp|add:player %}
+{% if chance < 1 %}1{% elif chance > 90 %}90{% else %}{{ chance }}{% endif %}
+{% endwith %}
+{% endwith %}
+{% endwith %}</p>
+{% endblock %}
+
+{% block worldmap %} style="visibility:hidden" {% endblock %}
+
+{% block a_button %}
+/battle/{{ encounter.1.1 }}/{% if ball > 0 and encounter.0 %}catch/{% endif %}
+{% endblock %}
 {% block b_button %} /worldmap {% endblock %}
 
