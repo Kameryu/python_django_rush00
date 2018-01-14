@@ -1,7 +1,32 @@
 {% extends "moviemon/base.html"  %}
 
 {% block title %} Save {% endblock %}
-{% block up_button %} move up {% endblock %}
-{% block down_button %} move down {% endblock %}
+{% block content %}
+<table class="option_data">
+	<tr>
+		{% if pos == 1 %}<td class='selected'>
+		{% else %}<td>
+		{% endif %}
+			SlotA: {{ slota }}
+		</td>
+	</tr>
+	<tr>
+		{% if pos == 2 %}<td class='selected'>
+		{% else %}<td>
+		{% endif %}
+			SlotB: {{ slotb }}
+		</td>
+	</tr>
+	<tr>
+		{% if pos == 3 %}<td class='selected'>
+		{% else %}<td>
+		{% endif %}
+			SlotC: {{ slotc }}
+		</td>
+	</tr>
+</table>
+{% endblock %}
+{% block up_button %} /options/save_game/up {% endblock %}
+{% block down_button %} /options/save_game/down {% endblock %}
 {% block a_button %} copy game {% endblock %}
 {% block b_button %} /options {% endblock %}

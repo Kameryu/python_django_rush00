@@ -66,8 +66,7 @@ def save_game(request):
     return render(request, "moviemon/save_game.html")
 
 def load_game(request, param = None):
-    rend = dict()
-    
+    rend = dict({'slota':'Free', 'slotb':'Free', 'slotc':'Free'})
     l = 0
 
     if param == 'start_game':
